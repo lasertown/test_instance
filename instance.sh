@@ -17,8 +17,8 @@ az network vnet create \
         --address-prefix $VnetPrefix \
         --subnet-name $VnetSubnetName \
         --subnet-prefix $VnetSubnetPrefix
-NicName="MyNic1"
 
+NicName="MyNic1"
 az network nic create \
         --name $NicName \
         --resource-group $RgName \
@@ -29,7 +29,7 @@ az network nic create \
         --public-ip-address $PipName
 
 # Create NSG
-NSGname = "grantnsg"
+NSGname="grantnsg"
 az network nsg rule create \
         --name "Allow SSH" \
         --resource-group $RgName \

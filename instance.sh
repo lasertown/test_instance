@@ -29,10 +29,11 @@ az network nic create \
         --public-ip-address $PipName
 
 # Create NSG
+NSGname = "grantnsg"
 az network nsg rule create \
         --name "Allow SSH" \
         --resource-group $RgName \
-        --nsg-name "grantnsg" \
+        --nsg-name $NSGname \
         --priority 100 \
         --source-address-prefixes $(curl -s ifconfig.me)/32 \
         --destination-port-ranges 22 \
@@ -63,5 +64,6 @@ az vm create \
         --location $Location \
         --size $VmSize \
         --nics $NicName \
+        --nsg $NSGname \
         --admin-username $Username \
         --ssh-key-value $SshKeyValue \

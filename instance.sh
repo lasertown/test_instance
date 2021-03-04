@@ -56,7 +56,7 @@ VmName="myVm"
 VmSize="Standard_B2ms"
 OsImage="SUSE:sles-15-sp2:gen2:latest"
 Username="azadmin"
-SshKeyValue="</path/to/local/file>"
+SshKeyValue="</path/to/local/file>" #<-----------CHANGE THIS VALUE TO YOUR LOCAL SSH PUBLIC KEY PATH
 az vm create \
         --name $VmName \
         --resource-group $RgName \

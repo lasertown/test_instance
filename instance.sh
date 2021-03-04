@@ -24,7 +24,7 @@ az network vnet create \
 
 # Create NSG
 NsgName="grantAllow"
-az network nsg create \ 
+az network nsg create \
         --resource-group $RgName --name $NsgName
 
 # Create NSG Rule
@@ -52,6 +52,6 @@ az vm create \
         --image $OsImage \
         --location $Location \
         --size $VmSize \
-        --nsg $NSGname \
+        --nsg $NsgName \
         --admin-username $Username \
         --ssh-key-value $SshKeyValue 

@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Create Resource Group
-RgName="test1"
+RgName="test_instance"
 Location="westus2"
 az group create --name $RgName --location $Location
 

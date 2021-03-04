@@ -3,11 +3,16 @@
 # Create Resource Group
 RgName="test_instance"
 Location="westus2"
-az group create --name $RgName --location $Location
+az group create \
+        --name $RgName \
+        --location $Location
 
 # Create Public IP
 PipName="myPublicIP"
-az network public-ip create --name $PipName --resource-group $RgName --location $Location
+az network public-ip create \
+        --name $PipName \
+        --resource-group $RgName \
+        --location $Location
 
 # Create VNET
 VnetName="myVnet"

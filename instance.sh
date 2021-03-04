@@ -23,11 +23,16 @@ az network vnet create \
         --subnet-prefix $VnetSubnetPrefix
 
 # Create NSG
-NSGname="grantnsg"
+NsgName="grantAllow"
+az network nsg create \ 
+        --resource-group $RgName -n NsgName
+
+# Create NSG Rule
+NsgRule="grantSSH"
 az network nsg rule create \
         --name "Allow SSH" \
         --resource-group $RgName \
-        --nsg-name $NSGname \
+        --nsg-name $NsgRule \
         --priority 100 \
         --source-address-prefixes $(curl -s ifconfig.me)/32 \
         --destination-port-ranges 22 \

@@ -35,21 +35,9 @@ az network nsg rule create \
         --protocol Tcp \
         --description "Accept SSH connections from my public IP"
 
-# Create NIC
-NicName="MyNic1"
-az network nic create \
-        --name $NicName \
-        --resource-group $RgName \
-        --location $Location \
-        --subnet $VnetSubnetName \
-        --network-security-group $NSGname \
-        --private-ip-address 10.0.0.4 \
-        --vnet-name $VnetName \
-        --public-ip-address $PipName
-       
 # Create a VM and attach the NIC.
 VmName="myVm"
-VmSize="Standard_A4_v2"
+VmSize="Standard_B2ms"
 OsImage="SUSE:sles-15-sp2:gen2:latest"
 Username="azadmin"
 SshKeyValue="</path/to/local/file>"
@@ -59,6 +47,6 @@ az vm create \
         --image $OsImage \
         --location $Location \
         --size $VmSize \
-        --nics $NicName \
+        --nsg $NSGname \
         --admin-username $Username \
         --ssh-key-value $SshKeyValue \

@@ -64,4 +64,5 @@ az vm create \
         --location $Location \
         --size $VmSize \
         --admin-username $Username \
-        --ssh-key-value $SshKeyValue 
+        --ssh-key-value $SshKeyValue \
+        --nsg $NsgName
